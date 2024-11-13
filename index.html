@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+    @font-face {
+        font-family: 'Viant MN';
+        src: url('../fonts/ViantMN.ttf') format('truetype'); /* Adjust path as needed */
+    }
+
+    :root {
+        --header-purple: #D8B4D8;
+        --nav-pink: #EFB1C9;
+        --text-pink: #DC5083;
+        --background-pink: #EFB1C9;
+    }
+
+    body {
+        background: linear-gradient(
+            to bottom,
+            var(--header-purple) 0%,
+            var(--header-purple) 130px,
+            var(--background-pink) 130px,
+            var(--background-pink) 100%
+        );
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+    }
+
+    .header-section {
+        background-color: var(--header-purple);
+        padding: 20px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 140px;
+    }
+
+    .site-logo {
+        height: 100px;
+        display: flex;
+        align-items: center;
+    }
+
+    .site-logo img {
+        height: 100%;
+        width: auto;
+        object-fit: contain;
+    }
+
+    .nav-buttons {
+        display: flex;
+        gap: 25px;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        margin-right: 50px;
+    }
+
+    .nav-button {
+        background-color: var(--nav-pink);
+        padding: 16px 40px;
+        text-decoration: none;
+        color: var(--text-pink);
+        font-family: Arial, sans-serif;
+        text-transform: uppercase;
+        border: none;
+        font-weight: bold;
+        font-size: 1.25em;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 25px;
+        line-height: 1;
+    }
+
+    .nav-button:hover {
+        opacity: 0.9;
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+
+    .main-content {
+        background-color: transparent;
+        padding: 2px;
+        margin: 0 20px;
+        margin-top: 20px;
+        display: flex;
+        min-height: 600px;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .quote-container {
+        flex: 0 0 60%;
+        display: flex;
+        gap: 0;
+        height: 600px;
+        background-color: #2B3160;
+        padding: 2px;
+        border-radius: 0;
+        overflow: hidden;
+    }
+
+    .artist-image {
+        flex: 0 0 45%;
+        max-width: 45%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .artist-image img {
+        width: 90%;
+        height: 90%;
+        object-fit: cover;
+        background-color: transparent;
+    }
+
+    .quote-text {
+        flex: 1;
+        padding: 20px 20px;
+        margin: 0;
+        font-family: 'Viant MN', monospace;
+        font-size: 19px;
+        color: white;
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        line-height: 2.5;
+        height: 100%;
+        background-color: transparent;
+        width: 100%;
+        max-width: none;
+        text-align: center;
+    }
+
+    .right-box {
+        flex: 0 0 30%;
+        background-color: #2A3670;
+        border-radius: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: none;
+        height: 600px;
+        padding: 2px;
+    }
+
+    .right-box video {
+        width: 90%;
+        height: 90%;
+        object-fit: cover;
+        display: block;
+        border-radius: 0;
+        opacity: 0.9;
+    }
+
+    .bottom-white-box {
+        background-color: white;
+        margin: 20px;
+        padding: 10px 20px;
+        min-height: 40px;
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .bottom-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 100px;
+        width: 100%;
+        max-width: 800px;
+    }
+
+    .instagram-link {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        text-decoration: none;
+        color: black;
+        cursor: pointer;
+        font-size: 1.8em;
+        font-family: Arial, sans-serif;
+        transition: color 0.3s ease; /* Add smooth transition */
+        }
+
+    .instagram-link:hover {
+        color: var(--nav-pink); /* Using the pink color variable */
+        }
+    .developer-credit {
+        font-size: 1.6em;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding-right: 0;
+    }
+
+    </style>
+    
+</head>
+
+<body>
+      <header class="header-section">
+        <div class="site-logo">
+            <img src="images/Karina.png" alt="Karina Velasco">
+        </div>
+        <nav class="nav-buttons">
+            <a href="index.html" class="nav-button">Homepage</a>
+            <a href="pages/earlylife.html" class="nav-button">Early Life</a>
+            <a href="pages/midlife.html" class="nav-button">Midlife</a>
+            <a href="pages/presentlife.html" class="nav-button">Present</a>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="quote-container">
+            <div class="artist-image">
+                <img src="images/Biopic.jpg" alt="Karina's Art Display">
+            </div>
+            <div class="quote-text">
+                "My canvases are mostly filled with images of Mujeres. I enjoy painting the cuteness and innocence of a young girl as much as the beauty and experiences of women, whether good or bad. My paintings are created from personal experiences and influenced by my surroundings, mi gente, mi cultura, and its traditions. I recently started experimenting with Paper Mache. And I am loving it."
+                - Karina Velasco
+            </div>
+        </div>
+        <div class="right-box">
+            <video autoplay muted loop playbackRate="0.5">
+                <source src="images/Video3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <div class="bottom-white-box">
+        <div class="bottom-content">
+            <a href="https://www.instagram.com/vk.artist" target="_blank" class="instagram-link">
+                <img src="images/insta.png" alt="Instagram">
+                <span>@vk.artist</span>
+            </a>
+            <div class="developer-credit">Developed by: Chelsea Muñoz</div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.right-box video').playbackRate = 0.5;
+    </script>
+
+</body>
+
+</html>
