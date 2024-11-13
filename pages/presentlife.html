@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>presentlife</title>
+    <style> 
+     @font-face {
+            font-family: 'Viant MN';
+            src: url('../fonts/ViantMN.woff2') format('woff2'),
+                 url('../fonts/ViantMN.woff') format('woff'),
+                 url('../fonts/ViantMN.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+    @font-face {
+        font-family: 'Silver Streak';
+        src: url('../fonts/SilverStreak.ttf') format('truetype');
+    }
+
+    :root {
+        --header-purple: #D8B4D8;
+        --nav-pink: #EFB1C9;
+        --text-pink: #DC5083;
+        --background-pink: #EFB1C9;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #ffc0cb;
+        min-height: 100vh;
+    }
+
+    .header-section {
+        background-color: var(--header-purple);
+        padding: 20px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 140px;
+    }
+
+    .site-logo {
+        height: 100px;
+        display: flex;
+        align-items: center;
+    }
+
+    .site-logo img {
+        height: 100%;
+        width: auto;
+        object-fit: contain;
+    }
+
+    .nav-buttons {
+        display: flex;
+        gap: 25px;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        margin-right: 50px;
+    }
+
+    .nav-button {
+        background-color: var(--nav-pink);
+        padding: 16px 40px;
+        text-decoration: none;
+        color: var(--text-pink);
+        font-family: Arial, sans-serif;
+        text-transform: uppercase;
+        border: none;
+        font-weight: bold;
+        font-size: 1.25em;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 25px;
+        line-height: 1;
+        }
+
+    .nav-button:hover {
+        opacity: 0.9;
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+
+
+    .bottom-white-box {
+        background-color: white;
+        margin: 20px auto;
+        padding: 15px 30px;
+        min-height: 50px;
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        position: relative;
+        margin-top: -50px;
+        z-index: 1;
+    }
+
+    .bottom-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 80px;
+        width: 100%;
+        max-width: 800px;
+    }
+
+    .instagram-link {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        text-decoration: none;
+        color: black;
+        cursor: pointer;
+        font-size: 1.8em;
+        font-family: Arial, sans-serif;
+        transition: color 0.3s ease;
+    }
+
+    .instagram-link:hover {
+        color: var(--nav-pink);
+    }
+
+    .instagram-link img {
+        width: 35px;
+        height: auto;
+        vertical-align: middle;
+    }
+
+    .developer-credit {
+        font-size: 1.6em;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding-right: 0;
+    }
+
+    .gallery-container {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+        background-color: #ffc0cb;
+        min-height: 100vh;
+    }
+
+    .top-row, .bottom-row {
+        display: flex;
+        gap: 15px;
+        width: 100%;
+        background-color: #ffc0cb;
+    }
+
+    .gallery-item {
+        background-color: white;
+        flex: 1;
+        height: 45vh;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Make the middle image in bottom row wider */
+    .gallery-item.wide {
+        flex: 2;  /* Takes up twice the space */
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* Hover effect styles */
+    .hover-content {
+        position: absolute;
+        bottom: -100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 20px;
+        transition: bottom 0.3s ease-in-out;
+        box-sizing: border-box;
+    }
+
+    .gallery-item:hover .hover-content {
+        bottom: 0;
+    }
+
+    .hover-content h2 {
+        margin: 0 0 10px 0;
+        font-size: 1.5rem;
+        font-family: sans-serif;
+    }
+
+    .hover-content p {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.4;
+        font-family: sans-serif;
+    }
+
+    /* Optional: Darken image on hover */
+    .gallery-item::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0);
+        transition: background 0.3s ease-in-out;
+    }
+
+    .gallery-item:hover::after {
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    html {
+        background-color: #ffc0cb;
+    }
+
+    /* Styling for the title container (fourth item) */
+    .title-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        flex: 1;
+        height: 45vh;
+        overflow: hidden;
+    }
+
+    .title-container h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'Silver Streak', sans-serif;
+        font-size: 4rem;
+        margin: 0;
+        text-align: center;
+        letter-spacing: 3px;
+        color: white;
+        font-weight: normal;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    .title-container img {
+        width: 200%;  /* Increased from 150% to zoom in more */
+        height: 200%; /* Increased from 150% to zoom in more */
+        object-fit: cover;
+        object-position: center;
+        position: absolute; /* Add this to ensure proper positioning */
+        top: 50%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Perfect centering */
+    }
+
+    /* Make sure to include the font-face if using Viant MN */
+    @font-face {
+        font-family: 'Viant MN';
+        src: url('../fonts/ViantMN.woff2') format('woff2'),
+             url('../fonts/ViantMN.woff') format('woff'),
+             url('../fonts/ViantMN.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    /* Top row styling */
+    .top-row {
+        display: flex;
+        gap: 15px;
+        width: 100%;
+        background-color: #ffc0cb;
+    }
+
+    .top-row .gallery-item {
+        flex: 1;  /* All items take equal space */
+        height: 45vh;  /* All items same height */
+    }
+
+    /* Title container (fourth item) styling */
+    .title-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+    }
+
+    .title-container h1 {
+        font-family: 'Viant MN', sans-serif;
+        font-size: 3rem;
+        margin: 0;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+
+    /* Add Silver Streak font-face declaration */
+    @font-face {
+        font-family: 'Silver Streak';
+        src: url('../fonts/SilverStreak.woff2') format('woff2'),
+             url('../fonts/SilverStreak.woff') format('woff'),
+             url('../fonts/SilverStreak.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    /* Title container styling */
+    .title-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        flex: 1;
+        height: 45vh;
+    }
+
+    .title-container h1 {
+        font-family: 'Silver Streak', sans-serif;
+        font-size: 4rem;  /* Adjusted for Silver Streak */
+        margin: 0;
+        text-align: center;
+        letter-spacing: 3px;  /* Adjusted for Silver Streak */
+        color: #000;  /* Ensure black color */
+        font-weight: normal;  /* Silver Streak works best with normal weight */
+    }
+
+    .title-container img {
+        width: 30%;  /* Adjust from default to zoom out */
+        height: 30%; /* Adjust from default to zoom out */
+        object-fit: cover;
+        object-position: center;
+    }
+        </style>
+</head>
+<body>
+
+    <header class="header-section">
+        <div class="site-logo">
+            <img src="../images/Karina.png" alt="Karina Velasco">
+        </div>
+        <nav class="nav-buttons">
+            <a href="../index.html" class="nav-button">Homepage</a>
+            <a href="earlylife.html" class="nav-button">Early Life</a>
+            <a href="midlife.html" class="nav-button">Midlife</a>
+            <a href="presentlife.html" class="nav-button">Present</a>
+        </nav>
+    </header>
+
+    <div class="gallery-container">
+        <!-- Top row -->
+        <div class="top-row">
+            <div class="gallery-item">
+                <img src= "../images/Present.jpg" alt="Present Life 1">
+                <div class="hover-content">
+                    <h2>Don't Look Away (2020)</h2>
+                    <p>"Don't look away. Children are still in cages. This cruelty must end.” ~ Karina</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="../images/present2.jpg" alt="Present Life 2">
+                <div class="hover-content">
+                    <h2>Mariposas y Chile Rojos (2024)</h2>
+                    <p>A young child in the fields picking chile rojos. The chile rojos are a symbol of the struggle and resilience of the Mexican people. The mariposas represent hope and the beauty of life. The child wears a Hello Kitty bag to symbolize the innocence and the beauty of childhood but the cruelty of the situation is not lost on the viewer. Yet the painting is not dark or depressing, it is a celebration of life and the resilience of the human spirit.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="../images/present3.jpg" alt="Present Life 3">
+                <div class="hover-content">
+                    <h2>Flower Children (1 out of 7) (2021)</h2>
+                    <p>Children are nature. We are all connected to the earth and to each other. We are all part of the same cycle of life. We are all the flowers children.</p>
+                </div>
+            </div>
+            <div class="gallery-item title-container">
+                <h1>Present Day</h1>
+            </div>
+        </div>
+
+        <!-- Bottom row -->
+        <div class="bottom-row">
+            <div class="gallery-item">
+                <img src="../images/present5.png" alt="Present Life 5">
+                <div class="hover-content">
+                    <h2>Getting to know my heart</h2>
+                    <p>A young woman with a heart in her hands. The heart is a symbol of love and life. The young woman is reaching out to touch the heart and to understand it. She is learning to get to know her heart and to understand it.</p>
+                </div>
+            </div>
+            <div class="gallery-item wide">
+                <img src="../images/present6.jpg" alt="Present Life 6">
+                <div class="hover-content">
+                    <h2>Hope (2021)</h2>
+                    <p>“Been thinking a lot about life lately, mainly about human existence and about how even on my darkest night I have been blessed with Hope. Life has been pretty crazy these days. I thought a lot about my Abuelita who recently passed away while I created this piece. She was a firm believer in la Virgen De Guadalupe and would always pray for her loved ones to be protected con el manto de la Virgencita, somehow now remembering her prayers makes me feel safe ,...so I tried to wrapped this baby con en el manto tambien. My goal for this piece was mainly to illustrate Hope and passion for life” ~ Karina</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="../images/present7.jpg" alt="Present Life 7">
+                <div class="hover-content">
+                    <h2>Yo Soy Vida (2022)</h2>
+                    <p>A young woman with flowers growing out of her body represents the power each woman has to create life. The flowers represent the beauty of life and the power of creation. The young woman is strong and confident, radiating life and vitality. She is vida.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="../images/present8.jpg" alt="Present Life 8">
+                <div class="hover-content">
+                    <h2>Con Sabor A Ti (2024)</h2>
+                    <p>An older couple dancing a slow dance. The man and woman are deeply in love and enjoying the moment. The painting is a celebration of love and the beauty of life.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-white-box">
+        <div class="bottom-content">
+            <a href="https://www.instagram.com/vk.artist" target="_blank" class="instagram-link">
+                <img src="../images/insta.png" alt="Instagram">
+                <span>@vk.artist</span>
+            </a>
+            <div class="developer-credit">Developed by: Chelsea Muñoz</div>
+        </div>
+
+</body>
+</html>

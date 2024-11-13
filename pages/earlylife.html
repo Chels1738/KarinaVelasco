@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+        font-family: 'Viant MN';
+        src: url('../fonts/ViantMN.ttf') format('truetype'); /* Adjust path as needed */
+    }
+
+    :root {
+        --header-purple: #D8B4D8;
+        --nav-pink: #EFB1C9;
+        --text-pink: #DC5083;
+        --background-pink: #EFB1C9;
+    }
+
+    body {
+        background: linear-gradient(
+            to bottom,
+            var(--header-purple) 0%,
+            var(--header-purple) 130px,
+            var(--background-pink) 130px,
+            var(--background-pink) 100%
+        );
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+    }
+
+    .header-section {
+        background-color: var(--header-purple);
+        padding: 20px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 140px;
+    }
+
+    .site-logo {
+        height: 100px;
+        display: flex;
+        align-items: center;
+    }
+
+    .site-logo img {
+        height: 100%;
+        width: auto;
+        object-fit: contain;
+    }
+
+    .nav-buttons {
+        display: flex;
+        gap: 25px;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        margin-right: 50px;
+    }
+
+    .nav-button {
+        background-color: var(--nav-pink);
+        padding: 16px 40px;
+        text-decoration: none;
+        color: var(--text-pink);
+        font-family: Arial, sans-serif;
+        text-transform: uppercase;
+        border: none;
+        font-weight: bold;
+        font-size: 1.25em;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 25px;
+        line-height: 1;
+    }
+
+    .nav-button:hover {
+        opacity: 0.9;
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+
+    .content-area {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .panels-container {
+        display: flex;
+        gap: 30px;
+        margin: 30px auto;
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .left-panel, .right-panel {
+        background-color: white;
+        height: 700px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .left-panel {
+        flex: 1;
+        padding: 0;
+        margin: 0;
+    }
+
+    .right-panel {
+        background-color: black;
+        flex: 1.5;
+        padding: 0;
+    }
+
+    .slideshow-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        background-color: black;
+    }
+
+    .slide {
+        display: none;
+        width: 100%;
+        height: 90%;
+        position: relative;
+    }
+
+    .slide.active {
+        display: block;
+    }
+
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .slide-description {
+        height: 10%;
+        padding: 10px;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        font-size: 1.1em;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+        margin-top: -40px;
+    }
+
+    .prev, .next {
+        position: absolute;
+        top: 40%;
+        transform: translateY(-50%);
+        padding: 16px;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .next {
+        right: 0;
+    }
+
+    .prev {
+        left: 0;
+    }
+
+    .prev:hover, .next:hover {
+        background-color: rgba(216, 180, 216, 0.8); /* Matching your header purple */
+    }
+
+    .image-container {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .left-panel img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    .bottom-white-box {
+        background-color: white;
+        margin: 20px;
+        padding: 15px 30px;
+        min-height: 50px;
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .bottom-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 80px;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .instagram-link {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      text-decoration: none;
+      color: black;
+      cursor: pointer;
+      font-size: 1.8em;
+      font-family: Arial, sans-serif;
+      transition: color 0.3s ease; /* Add smooth transition */
+        }
+
+    .instagram-link:hover {
+      color: var(--nav-pink); /* Using the pink color variable */
+      }
+
+    .developer-credit {
+        font-size: 1.6em;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding-right: 0;
+    }
+
+    /* Add this if you want to ensure the Google Font is loaded */
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+    .image-hover-description {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+        font-family: Arial, sans-serif;
+        font-size: 1em;
+        line-height: 1.6;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .hover-content {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    .hover-content h2 {
+        font-size: 1.4em;
+        margin-bottom: 15px;
+        color: var(--nav-pink);
+        font-family: 'Arial', sans-serif;
+    }
+
+    .hover-content p {
+        font-size: 1em;
+        line-height: 1.6;
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .slide:hover .image-hover-description {
+        opacity: 1;
+    }
+  </style>
+</head>
+<body>
+    <header class="header-section">
+        <div class="site-logo">
+            <img src="../images/Karina.png" alt="Karina Velasco">
+        </div>
+        <nav class="nav-buttons">
+            <a href="../index.html" class="nav-button">Homepage</a>
+            <a href="earlylife.html" class="nav-button">Early Life</a>
+            <a href="midlife.html" class="nav-button">Midlife</a>
+            <a href="presentlife.html" class="nav-button">Present</a>
+        </nav>
+    </header>
+
+    <div class="content-area">
+        <div class="panels-container">
+            <div class="left-panel">
+                <div class="image-container">
+                    <img src="../images/earlywork2.png" alt="Early work">
+                </div>
+            </div>
+            
+            <div class="right-panel">
+                <div class="slideshow-container">
+                    <div class="slide active">
+                        <img src="../images/earlylifepic1.png" alt="Slide 1">
+                        <div class="image-hover-description">
+                            <div class="hover-content">
+                                <h2>Spirituality (2018)</h2>
+                                <p>"This piece is based on my interest in yoga and meditation. The anatomical heart represents her passion for life bursting out as she sits and meditates surrounded by nature, the sun and the moon. She finds herself connected to her surroundings. You can see she is connected to the roots of the tree and both are growing strong even among the stormy gray clouds that appear to be in the background." ~ Karina</p>
+                            </div>
+                        </div>
+                        <div class="slide-description">
+                            "Spirituality"
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="../images/earlylifepic2.png" alt="Slide 2">
+                        <div class="image-hover-description">
+                            <div class="hover-content">
+                                <h2>A daily Drawlloween challenge (2017)</h2>
+                                <p>"I am a big fan of aliens. I grew up watching alien movies , watching the Xfiles show and listening to families stories about aliens. This quick drawing was created for the prompt “alien” and it represents a hopeless alien feeling homesick and missing its comfort zone. The alien finds himself at a bar having a drink yearning to go back home." ~ Karina</p>
+                            </div>
+                        </div>
+                        <div class="slide-description">
+                            "A daily Drawlloween Challenge"
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="../images/earlylifepic3.png" alt="Slide 3">
+                        <div class="image-hover-description">
+                            <div class="hover-content">
+                                <h2>Chavela Vargas (2018)</h2>
+                                <p>"I choose to paint the well known artist Chavela Vargas because I admire her music and her strong personality and character. I also love the fact considered herself a Mexican even though she was from Costa Rica, she has a popular quote that says “Los mexicanos nacemos donde nos da la rechingada gana.” ~ Karina</p>
+                            </div>
+                        </div>
+                        <div class="slide-description">
+                            "Chavela Vargas" 
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="../images/earlylifepic4.png" alt="Slide 4">
+                        <div class="image-hover-description">
+                            <div class="hover-content">
+                                <h2>Childhood Memories (2019)</h2>
+                                <p>"This is a painting that captures a beautiful childhood memory of a little chiled eating the chicarrones. I grew up eating the chicharrones and it was always a good treat with lots of hot sauce. It is the kind of memory that brings back a smile." ~ Karina</p>
+                            </div>
+                        </div>
+                        <div class="slide-description">
+                            "Childhood Memories" 
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="../images/earlylifepic6.png" alt="Slide 5">
+                        <div class="image-hover-description">
+                            <div class="hover-content">
+                                <h2>Mujer Divina (2019)</h2>
+                                <p>"This painting is about resilience. It is about choosing to stay strong among difficult times. The corazon de nopal represents life, its good and difficult at times. You can see she is holding the heart as blood drips on her hands. She may be in pain but she is still standing strong and as she remains strong and firme something amazing happens inside of her. You can see that there is growth happening inside of her as a beautiful vine of the passion fruit flower reaches out of her in search of light and life. This represent her passion for life and growth regardless of the difficulties and challenges of life she is still standing strong." ~ Karina</p>
+                            </div>
+                        </div>
+                        <div class="slide-description">
+                            "Mujer Divina"
+                        </div>
+                    </div>
+                    <button class="prev" onclick="changeSlide(-1)">❮</button>
+                    <button class="next" onclick="changeSlide(1)">❯</button>
+                </div>
+            </div>
+        </div>
+
+         <div class="bottom-white-box">
+        <div class="bottom-content">
+            <a href="https://www.instagram.com/vk.artist" target="_blank" class="instagram-link">
+                <img src="../images/insta.png" alt="Instagram">
+                <span>@vk.artist</span>
+            </a>
+            <div class="developer-credit">Developed by: Chelsea Muñoz</div>
+        </div>
+        </div>
+    </div>
+
+    <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function changeSlide(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+        let slides = document.getElementsByClassName("slide");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        
+        slides[slideIndex-1].style.display = "block";
+    }
+
+    // Optional: Auto-advance slides
+    // setInterval(() => {
+    //     changeSlide(1);
+    // }, 5000); // Changes slide every 5 seconds
+    </script>
+</body>
+</html>

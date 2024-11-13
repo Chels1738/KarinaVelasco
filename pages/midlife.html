@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>midlife</title>
+    <style>
+        @font-face {
+            font-family: 'Viant MN';
+            src: url('../fonts/ViantMN.woff2') format('woff2'),
+                 url('../fonts/ViantMN.woff') format('woff'),
+                 url('../fonts/ViantMN.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Silver Streak';
+            src: url('../fonts/SilverStreak.woff2') format('woff2'),
+                 url('../fonts/SilverStreak.woff') format('woff'),
+                 url('../fonts/SilverStreak.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --header-purple: #D8B4D8;
+            --nav-pink: #EFB1C9;
+            --text-pink: #DC5083;
+            --background-pink: #EFB1C9;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: pink;
+            min-height: 100vh;
+        }
+
+        .header-section {
+            background-color: var(--header-purple);
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 140px;
+            margin-bottom: 30px;
+        }
+
+        .site-logo {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            margin-left: 25px;
+        }
+
+        .site-logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            margin-right: 25px;
+        }
+
+        .nav-button {
+            background-color: var(--nav-pink);
+            padding: 16px 40px;
+            text-decoration: none;
+            color: var(--text-pink);
+            font-family: Arial, sans-serif;
+            text-transform: uppercase;
+            border: none;
+            font-weight: bold;
+            font-size: 1.25em;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 25px;
+            line-height: 1;
+        }
+
+        .nav-button:hover {
+            opacity: 0.9;
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+
+        .bottom-white-box {
+            background-color: white;
+            margin: 20px;
+            padding: 15px 30px;
+            min-height: 50px;
+            display: flex;
+            justify-content: center;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .bottom-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 80px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .instagram-link {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+            font-size: 1.8em;
+            font-family: Arial, sans-serif;
+            transition: color 0.3s ease; /* Add smooth transition */
+        }
+
+        .instagram-link:hover {
+            color: var(--nav-pink); /* Using the pink color variable */
+        }
+
+        .developer-credit {
+            font-size: 1.6em;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding-right: 0;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 2fr;
+            gap: 15px;
+            padding: 15px;
+            width: 98%;
+            margin: 0 auto;
+            box-sizing: border-box;
+            background-color: #ffc0cb;
+        }
+
+        /* Left tall column */
+        .gallery-container > .gallery-item:first-child {
+            height: calc(100vh - 30px);
+            background-color: white;
+        }
+
+        /* Middle column */
+        .middle-column {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .middle-column .gallery-item:first-child {
+            height: 35vh;
+        }
+
+        .middle-column .gallery-item:last-child {
+            height: calc(65vh - 45px);
+            align-self: flex-end;
+        }
+
+        /* Right section */
+        .right-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .title-box {
+            height: 25vh;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .title-box img {
+            width: 70%;
+            height: 70%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .title-box h1 {
+            font-family: 'Silver Streak', sans-serif;
+            font-size: 7rem;
+            margin: 0;
+            letter-spacing: 3px;
+            text-align: center;
+            line-height: 1;
+            font-weight: normal;
+            color: #000;
+        }
+
+        .right-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            align-self: flex-end;
+            height: calc(75vh - 45px);
+        }
+
+        .right-images .gallery-item {
+            height: 100%;
+        }
+
+        /* Common styles */
+        .gallery-item {
+            background-color: white;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffc0cb;
+        }
+
+        /* Hover effect styles */
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        .hover-content {
+            position: absolute;
+            bottom: -100%;  /* Start hidden below */
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            transition: bottom 0.3s ease-in-out;
+            box-sizing: border-box;
+        }
+
+        .gallery-item:hover .hover-content {
+            bottom: 0;  /* Slide up on hover */
+        }
+
+        .hover-content h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.5rem;
+            font-family: sans-serif;
+        }
+
+        .hover-content p {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.4;
+            font-family: sans-serif;
+        }
+
+        /* Optional: Darken image slightly on hover */
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0);
+            transition: background 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover::after {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header-section">
+        <div class="site-logo">
+            <img src="../images/Karina.png" alt="Karina Velasco">
+        </div>
+        <nav class="nav-buttons">
+            <a href="../index.html" class="nav-button">Homepage</a>
+            <a href="earlylife.html" class="nav-button">Early Life</a>
+            <a href="midlife.html" class="nav-button">Midlife</a>
+            <a href="presentlife.html" class="nav-button">Present</a>
+        </nav>
+    </header>
+    <div class="gallery-container">
+        <!-- Left tall column -->
+        <div class="gallery-item">
+            <img src="../images/midlife11.jpg" alt="Midlife 1">
+            <div class="hover-content">
+                <h2>Believe (2020)</h2>
+                <p>Trust The Light That Shines Within...</p>
+            </div>
+        </div>
+    
+        <!-- Middle column -->
+        <div class="middle-column">
+            <div class="gallery-item">
+                <img src="../images/midlife9.jpg" alt="Midlife 2">
+                <div class="hover-content">
+                    <h2>You must BELIEVE you are Divine (2019)</h2>
+                    <p>You must BELIEVE you are Divine</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="../images/Concencia.jpg" alt="Midlife 3">
+                <div class="hover-content">
+                    <h2> Concencia Yo Soy Luz (2019)</h2>
+                    <p>Concencia is the ability to see the light within, even in the darkest times.</p>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Right section -->
+        <div class="right-section">
+            <!-- Title -->
+            <div class="title-box">
+            <img src="../images/midlife4.png" alt="Midlife">
+            </div>
+            <!-- Right images -->
+            <div class="right-images">
+                <div class="gallery-item">
+                    <img src="../images/midlife10.jpg" alt="">
+                    <div class="hover-content">
+                        <h2>Unexpected Encounter En El Caracol</h2>
+                        <p>"This painting is about resilience. It is about choosing to stay strong among difficult times. The corazon de nopal represents life, its good and difficult times. You can see she is holding the heart as blood drips on her hands . She may be in pain but she is still standing strong and as she remains strong and firme something amazing happens inside of her. You can see that there is growth happening inside of her as a beautiful vine of the passion fruit flower reaches out of her in search of light and life. This represent her passion for life and growth regardless of the difficulties and challenges of life she is still standing strong." ~ Karina</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/Midlife8.jpeg" alt="Families Belong Together">
+                    <div class="hover-content">
+                        <h2>Families Belong Together (2020)</h2>
+                        <p>"Children do not belong in cages. Families belong together. Family separation is cruelty!" ~ Karina</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="bottom-white-box">
+            <div class="bottom-content">
+                <a href="https://www.instagram.com/vk.artist" target="_blank" class="instagram-link">
+                    <img src="../images/insta.png" alt="Instagram">
+                    <span>@vk.artist</span>
+                </a>
+                <div class="developer-credit">Developed by: Chelsea Muñoz</div>
+            </div>
+</body>
+</html>
